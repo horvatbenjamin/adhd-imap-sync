@@ -92,6 +92,11 @@ chown "$PUID:$PGID" /run/config
     # Extra server options
     extra_server_options="$(getv EXTRA_SERVER_OPTIONS "$sfx")"
     extra_server_options="${extra_server_options:-$ADHD_EXTRA_SERVER_OPTIONS}"
+
+    # Extra server options
+    extra_server_options2="$(getv EXTRA_SERVER_OPTIONS2 "$sfx")"
+    extra_server_options2="${extra_server_options2:-$ADHD_EXTRA_SERVER_OPTIONS2}"
+
     # Extra user options
     extra_user_options="$(getv EXTRA_USER_OPTIONS "$sfx")"
     extra_user_options="${extra_user_options:-$ADHD_EXTRA_USER_OPTIONS}"
@@ -110,7 +115,7 @@ chown "$PUID:$PGID" /run/config
     fi
 
     echo
-    echo "poll ${host} protocol IMAP port ${port}"
+    echo "poll ${host} protocol IMAP port ${port} ${extra_server_options2}"
     echo "    ${extra_server_options}"
     echo "    user \"${user}\" with password \"${pass}\" ${extra_user_options}"
     if [ "${tls}" = "false" ] || [ "${tls}" = "no" ]; then
