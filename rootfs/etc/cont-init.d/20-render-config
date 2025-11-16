@@ -111,7 +111,7 @@ chown "$PUID:$PGID" /run/config
 
     echo
     echo "poll ${host} protocol IMAP port ${port}"
-    echo "${extra_server_options}"
+    echo "    ${extra_server_options}"
     echo "    user \"${user}\" with password \"${pass}\" ${extra_user_options}"
     if [ "${tls}" = "false" ] || [ "${tls}" = "no" ]; then
       echo "    no ssl"
